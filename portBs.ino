@@ -1,7 +1,9 @@
-void playPortBsamp(int i) {
+void playPortBsamp(int i)
+{
+  //aprintf("PlayPortB: %d\n",i);
   timer = micros() + pitch;                                                                         //approx 97.9797979797979 bpm
   for (long o = 0; timer > o; o = micros()) {
-    PORTB = (PORTB & B11101001) | OutPut(i); //MASK THE PINS WE WANT TO WRITE TO
+    PORTD = (PORTD & B11111011) | OutPut(i); //MASK THE PINS WE WANT TO WRITE TO
   }
 }
 

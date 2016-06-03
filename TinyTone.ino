@@ -1,5 +1,6 @@
 void TinyTone(int pitch, unsigned char octave, unsigned long decay, unsigned long duration, int BD, int snr, int mod, int hats)
 {
+  //aprintf("Tinytone: %d %c %l %l %d %d %d %d\n",pitch,octave,decay,duration,BD,snr,mod,hats);
   int oct = octaves[octave];
   //LDR = analogRead (A1);
   t = 200;
@@ -24,14 +25,14 @@ void TinyTone(int pitch, unsigned char octave, unsigned long decay, unsigned lon
       for (long i = millis() + decay; i > millis(); t++) {
         if (millis() < ((i - decay) + (decay / 2))) {
           if (snr == 1) {
-            PORTB = (PORTB & B11111011) | (t * (t >> 3) >> (t >> 7)); //MASK THE PINS WE WANT TO WRITE TO
+            PORTD = (PORTD & B11111011) | (t * (t >> 3) >> (t >> 7)); //MASK THE PINS WE WANT TO WRITE TO
             //this =76543210
           }
           if (BD == 1) {
-            PORTB = (PORTB & B11111011) | t * (t >> 3) >> (t >> 6);
+            PORTD = (PORTD & B11111011) | t * (t >> 3) >> (t >> 6);
           }
           if (hats == 1) {
-            PORTB = (PORTB & B11111011) | t * (t >> a | t >> b);//( t * (t >> 3) >> (t >> 6));
+            PORTD = (PORTD & B11111011) | t * (t >> a | t >> b);//( t * (t >> 3) >> (t >> 6));
           }
         }
       }

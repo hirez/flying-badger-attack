@@ -1,4 +1,4 @@
-int DLCODE = 2112;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
+int DLCODE = 23;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
 
 
 // Notes
@@ -57,6 +57,11 @@ int transposeAmount = 1;
 
 void setup()
 {
+  Serial.begin(57600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.println("Start!");
   randomSeed(DLCODE);
   DDRB = B11111111;
   //this =76543210
@@ -76,7 +81,10 @@ void setup()
 void loop()
 {
   //refreshAll();
-  switch (random(1, 11)) {
+  Serial.println("Begin loop");
+  // int bepp = random(0,10);
+  int bepp = 5;
+  switch (bepp) {
     case 1:
     case 2:
     case 3:
@@ -85,7 +93,7 @@ void loop()
 
     case 4:
     case 5:
-      jamOrgy(random(1, 33));
+      jamOrgy(random(0, 32));
       break;
 
     case 6:

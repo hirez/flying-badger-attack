@@ -1,4 +1,6 @@
-void playMelodic(int reps) {
+void playMelodic(int reps)
+{
+  aprintf("PlayMelodic: %d\n",reps);
   for (int i = 0; i < reps; i++) {                                                //repeat number of reps
     for (int i = 0; i < 2; i++) {                                            //repeat this subpart twice
       playMelody(4, 0, startStep);                                           //play stored melody 4 times, not transposed, move the start step if we portBd

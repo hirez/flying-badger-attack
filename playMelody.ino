@@ -1,4 +1,6 @@
-void playMelody(int iterationz, int transpose, int startstep) {
+void playMelody(int iterationz, int transpose, int startstep) 
+{
+  aprintf("PlayMelody\n");
   for (int i = 0; i < iterationz; i++) {
     for (int i = startstep; i < timeSig; i++) {
       TinyTone(melody[i] + transpose, meloct[i], rate / 2, rate, BD[i], snare[i], mods[i], hats[i]);

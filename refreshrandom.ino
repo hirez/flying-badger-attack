@@ -2,12 +2,12 @@ void refreshrandom() {
   a = random(1, 20);
   b = random(1, 20);
   c = random(5, 31);
-  selector = random (1, 23);
+  selector = random (0, 22);
   runTime = 26200 - (pitch * 20);
   //runTime = random (10000, 60000);
   iterations = random(0, 3) * 2;
   pitch = random(50, 600);
-  jamSeshLength = random(1, 17) * 8;
+  jamSeshLength = random(0, 16) * 8;
 
   modReps = availmodReps[random (0, 6)];
 }
