@@ -1,5 +1,5 @@
 int DLCODE = 16373;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
-#define DEBUG 1
+//#define DEBUG 1
 
 // Notes
 //const int notes[13] = {239,225,213,201,190,179,169,159,150,142,134,0,9999};
@@ -28,7 +28,7 @@ int hats[8] = {0, 1, 0, 1, 0, 1, 0, 1};
 
 
 int oct = 0;
-const int Speaker = 4;     //pin for tones, 1 on weasel board 4 or 2 on dedcats
+const int Speaker = 2;     //pin for tones, 1 on weasel board 4 or 2 on dedcats
 int rate = 300;
 int a;
 int b;
