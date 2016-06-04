@@ -1,3 +1,4 @@
+#ifdef DEBUG
 int aprintf(char *str, ...) {
   int i, j, count = 0;
 
@@ -36,3 +37,4 @@ int aprintf(char *str, ...) {
 
   return count;
 }
+#endif

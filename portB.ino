@@ -1,6 +1,8 @@
 void portB(int steps, int modReps)
 {
-  aprintf("PortB: %d %d\n",steps,modReps);
+  #ifdef DEBUG
+  aprintf("Start PortB: %d %d\n",steps,modReps);
+  #endif
   refreshrandom();
   for (int i = 0; i < modReps; i++) {
     portBtimer = millis() + (rate * (steps / modReps));

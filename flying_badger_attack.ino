@@ -1,5 +1,5 @@
-int DLCODE = 23;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
-
+int DLCODE = 16373;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
+#define DEBUG 1
 
 // Notes
 //const int notes[13] = {239,225,213,201,190,179,169,159,150,142,134,0,9999};
@@ -57,23 +57,25 @@ int transposeAmount = 1;
 
 void setup()
 {
+  #ifdef DEBUG
   Serial.begin(57600);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-  Serial.println("Start!");
+  aprintf("Start!\n");
+  #endif
   randomSeed(DLCODE);
   DDRB = B11111111;
   //this =76543210
   refreshrandom();
-  portB(8, 8);
+  //portB(8, 8);
 
   refreshrandom();
-  portB(1, 1);
+  //portB(1, 1);
   refreshrandom();
-  portB(8, 1);
+  //portB(8, 1);
   refreshAll();
-  portB(32, 1);
+  //portB(32, 1);
   rate = 250;
   playMelodic(Reps);
 }
@@ -81,37 +83,25 @@ void setup()
 void loop()
 {
   //refreshAll();
-  Serial.println("Begin loop");
-  // int bepp = random(0,10);
-  int bepp = 5;
+  int bepp = random(0,7);
+  #ifdef DEBUG
+  aprintf("Begin loop\n");
+  aprintf("Bepp is %d\n",bepp);
+  #endif
   switch (bepp) {
     case 1:
     case 2:
     case 3:
       playMelodic(Reps);
       break;
-
     case 4:
     case 5:
-      jamOrgy(random(0, 32));
+      //jamOrgy(random(0, 32));
       break;
-
     case 6:
       refreshAll();
-
     default:
-      portB(jamSeshLength, modReps);
+      //portB(jamSeshLength, modReps);
       break;
   }
-
 }
-
-
-
-
-
-
-
-
-
-
