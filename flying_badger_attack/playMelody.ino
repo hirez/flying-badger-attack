@@ -1,7 +1,7 @@
 void playMelody(int iterationz, int transpose, int startstep) 
 {
   #ifdef DEBUG
-  aprintf("PlayMelody\n");
+  aprintf("PlayMelody %d %d %d\n",iterationz,transpose,startstep);
   #endif
   for (int i = 0; i < iterationz; i++) {
     for (int i = startstep; i < timeSig; i++) {

@@ -1,7 +1,7 @@
 void TinyTone(int pitch, unsigned char octave, unsigned long decay, unsigned long duration, int BD, int snr, int mod, int hats)
 {
   #ifdef DEBUG
-  aprintf("Tinytone: %d %d %l %l %d %d %d %d\n",pitch,octave,decay,duration,BD,snr,mod,hats);
+  //aprintf("Tinytone: %d %d %l %l %d %d %d %d\n",pitch,octave,decay,duration,BD,snr,mod,hats);
   #endif
   int oct = octaves[octave];
   //LDR = analogRead (A1);
