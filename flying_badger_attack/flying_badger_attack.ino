@@ -1,9 +1,9 @@
-int DLCODE = 16373;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
-#define DEBUG 1
+int DLCODE = 16383;   //1004 is rate awesome //17 is gnarbly //1022 catchy //1023 fast cool idm!!
+//#define DEBUG 1
 
 // Notes
-//const int notes[13] = {239,225,213,201,190,179,169,159,150,142,134,0,9999};
-const int notes[18] = {440, 466, 494, 523, 554, 587, 622, 659, 698, 740, 784, 831, 9999, 0, 9999, 0, 9999, 440};
+  const int notes[18] = {239,225,213,201,190,179,169,159,150,142,134,0,9999, 0, 9999, 0, 9999, 440};
+//const int notes[18] = {440,466,494,523,554,587,622,659,698,740,784,831,9999, 0, 9999, 0, 9999, 440};
 
 
 const int scales[50] = {
@@ -22,13 +22,13 @@ int melody[8] = {0, 4, 7, 0, 1, 5, 8, 1};
 int meloct[8] = {2, 3, 3, 3, 0, 3, 3, 2};
 int BD[8] = {1, 0, 0, 0, 0, 0, 0, 0};
 int snare[8] = {0, 0, 0, 0, 1, 0, 0, 1};
-//int mods[8] = {20, 30, 20, 30, 20, 30, 20, 30};
-int mods[8] = {55, 36, 20, 30, 20, 40, 40, 50};
+int mods[8] = {20, 30, 20, 30, 20, 30, 20, 30};
+//int mods[8] = {55, 36, 20, 30, 20, 40, 40, 50};
 int hats[8] = {0, 1, 0, 1, 0, 1, 0, 1};
 
 
 int oct = 0;
-const int Speaker = 4;     //pin for tones, 1 on weasel board 4 or 2 on dedcats
+const int Speaker = 1;     //pin for tones, 1 on weasel board 4 or 2 on dedcats
 int rate = 300;
 int a;
 int b;
@@ -67,15 +67,15 @@ void setup()
   randomSeed(DLCODE);
   DDRB = B11111111;
   //this =76543210
-  //refreshrandom();
-  //portB(8, 8);
-
-  //refreshrandom();
-  //portB(1, 1);
   refreshrandom();
-  //portB(8, 1);
+  portB(8, 8);
+
+  refreshrandom();
+  portB(1, 1);
+  refreshrandom();
+  portB(8, 1);
   refreshAll();
-  //portB(32, 1);
+  portB(32, 1);
   rate = 250;
   playMelodic(Reps);
 }
@@ -96,12 +96,12 @@ void loop()
       break;
     case 4:
     case 5:
-      //jamOrgy(random(0, 32));
-      //break;
+      jamOrgy(random(0, 32));
+      break;
     case 6:
       refreshAll();
     default:
-      //portB(jamSeshLength, modReps);
+      portB(jamSeshLength, modReps);
       break;
   }
 }

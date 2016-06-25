@@ -19,10 +19,13 @@ void TinyTone(int pitch, unsigned char octave, unsigned long decay, unsigned lon
       tritz = 1;
     }
     for (int i = 0; i < tritz; i++) {
+      TCCR1 = 0x90 | (11-oct); // for 8MHz clock
       if ( (mod % 2) == 0) {
-        tone(Speaker, ((notes[pitch] / 2)*octaves[i]) / oct);
+        OCR1C = ((notes[pitch] / 2)*octaves[i]) / oct; 
+        //tone(Speaker, ((notes[pitch] / 2)*octaves[i]) / oct);
       } else {
-        tone(Speaker, (notes[pitch] / 2) / oct);
+        OCR1C = (notes[pitch] / 2) / oct;
+        //tone(Speaker, (notes[pitch] / 2) / oct);
       }
       for (long i = millis() + decay; i > millis(); t++) {
         if (millis() < ((i - decay) + (decay / 2))) {
@@ -38,8 +41,9 @@ void TinyTone(int pitch, unsigned char octave, unsigned long decay, unsigned lon
           }
         }
       }
-      noTone(Speaker);
+      TCCR1 = 0x90;
       delay((duration / tritz) - decay);
     }
   }
 }
+
